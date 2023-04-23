@@ -1,0 +1,43 @@
+# Workflows CI config file
+# This workflow runs everyday, checks for updates of designated packages.
+# Build workflow will be triggered if there's any commit pushed to this branch.
+name: Check for latest Git commits nightly
+on:
+  workflow_dispatch:
+#  schedule:
+#  - cron: '30 0 * * *'
+
+permissions:
+  contents: read
+  repository-projects: write
+
+jobs:
+  check-for-updates:
+    runs-on: self-hosted
+    env:
+      NIGHTLY: 1
+    steps:
+      # Fetch abbs and workflows-ci repository
+      # Checks out ABBS tree to $GITHUB_WORKSPACE/abbs
+      - uses: actions/checkout@v3
+        with:
+          ref: 'bleeding-edge-nightly'
+          path: 'abbs'
+      # Checks out the CI scripts repository to $GITHUB_WORKSPACE/workflows-ci
+      - uses: actions/checkout@v3
+        with:
+          repository: 'cyanoxygen/workflows-ci'
+          ref: 'master'
+          path: 'workflows-ci'
+      
+      # Check for updates
+      - name: 'Set up CI scripts'
+        run: |
+          pushd ${{ env.GITHUB_WORKSPACE }}/workflows-ci
+          env TREEDIR=${{ env.GITHUB_WORKSPACE }}/abbs NIGHTLY=${{ env.NIGHTLY }} ./check-update-job
+          popd
+
+      - name: 'Push the commits'
+        run: |
+          pushd ${{ env.GITHUB_WORKSPACE }}/abbs
+          git push --force
