@@ -8,7 +8,7 @@ on:
 #  - cron: '30 0 * * *'
 
 permissions:
-  contents: read
+  contents: write
   repository-projects: write
 
 jobs:
@@ -22,6 +22,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: 'bleeding-edge-nightly'
+          fetch-depth: '0'
           path: 'abbs'
       # Checks out the CI scripts repository to $GITHUB_WORKSPACE/workflows-ci
       - uses: actions/checkout@v3
