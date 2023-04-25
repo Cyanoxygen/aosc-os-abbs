@@ -32,7 +32,7 @@ jobs:
           path: 'workflows-ci'
       
       # Check for updates
-      - name: 'Set up CI scripts'
+      - name: 'Check for updates'
         run: |
           pushd ${{ github.workspace }}/workflows-ci
           env TREEDIR=${{ github.workspace }}/abbs NIGHTLY=${{ env.NIGHTLY }} ./check-update-job
