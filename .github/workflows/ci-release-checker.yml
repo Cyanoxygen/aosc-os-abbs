@@ -12,6 +12,36 @@ permissions:
   repository-projects: write
 
 jobs:
+  check-for-nightly-updates:
+    runs-on: self-hosted
+    env:
+      NIGHTLY: 1
+    steps:
+      # Fetch abbs and workflows-ci repository
+      # Checks out ABBS tree to $GITHUB_WORKSPACE/abbs
+      - uses: actions/checkout@v3
+        with:
+          ref: 'bleeding-edge-nightly'
+          fetch-depth: '0'
+          path: 'abbs'
+      # Checks out the CI scripts repository to $GITHUB_WORKSPACE/workflows-ci
+      - uses: actions/checkout@v3
+        with:
+          repository: 'cyanoxygen/workflows-ci'
+          ref: 'master'
+          path: 'workflows-ci'
+      
+      # Check for updates
+      - name: 'Check for updates'
+        run: |
+          pushd ${{ github.workspace }}/workflows-ci
+          env TREEDIR=${{ github.workspace }}/abbs NIGHTLY=${{ env.NIGHTLY }} ./check-update-job
+          popd
+
+      - name: 'Push the commits'
+        run: |
+          pushd ${{ github.workspace }}/abbs
+          git push --force
   check-for-updates:
     runs-on: self-hosted
     env:
