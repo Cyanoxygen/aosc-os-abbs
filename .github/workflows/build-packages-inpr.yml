@@ -1,0 +1,33 @@
+# CI config file for building packages inside PR.
+# This CI should be triggered after a PR with tag `use-ci` is opened.
+
+name: PR test
+run-name: PR test
+on:
+#   workflow_dispatch:
+#     inputs:
+#       packages:
+#         description: 'Packages to build, separated by spaces'
+#         type: string
+#         default: 'aosc-aaa'
+#         required: true
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - labeled
+      - updated
+      - closed
+jobs:
+  sanity-check:
+    name: 'Pre flight checklist'
+    runs-on:
+      - self-hosted
+      - AOSC
+    steps:
+      - name: 'use-ci label'
+        id: check-use-ci-label
+        run: |
+          echo "${{ github.event }}" | jq
+          exit 0
+  
