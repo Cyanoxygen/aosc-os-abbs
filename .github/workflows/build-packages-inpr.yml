@@ -28,6 +28,10 @@ jobs:
       - name: 'use-ci label'
         id: check-use-ci-label
         run: |
-          echo "${{ github.event }}" | jq
+          export PAYLOAD=$(mktemp)
+          cat > $PAYLOAD << EOF
+          ${{ toJSON(github.event) }}
+          EOF
+          cat $PAYLOAD | jq
           exit 0
   
