@@ -1,6 +1,7 @@
 PKGNAME=gcc-runtime
 PKGSEC=devel
-PKGDEP="glibc texinfo"
+PKGDEP="glibc"
+BUILDDEP="texinfo"
 PKGDES="GNU Compiler Collection (runtime libraries only)"
 
 # Note: Multi-level Autotools source tree.
