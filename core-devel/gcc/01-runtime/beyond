@@ -1,18 +1,16 @@
 abinfo "Removing installed files, rebuild package manually..."
-rm -rf "$PKGDIR"
+rm -rv "$PKGDIR"
 
 abinfo "Installing runtime libraries..."
-cd "$SRCDIR"/abbuild
-make -C "${ARCH_TARGET[$ARCH]}"/libgcc install-shared DESTDIR="$PKGDIR"
-rm `find "$PKGDIR" -name 'libgcc_eh.a'`
+cd "$BLDDIR"
+make install-shared \
+    -C "${ARCH_TARGET[$ARCH]}"/libgcc \
+    DESTDIR="$PKGDIR"
 
-if [[ "${CROSS:-$ARCH}" != "armv4" && \
-      "${CROSS:-$ARCH}" != "armv6hf" && \
-      "${CROSS:-$ARCH}" != "armv7hf" && \
-      "${CROSS:-$ARCH}" != "i486" && \
-      "${CROSS:-$ARCH}" != "loongson2f" && \
-      "${CROSS:-$ARCH}" != "powerpc" && \
-      "${CROSS:-$ARCH}" != "ppc64" ]]; then
+abinfo "Removing libgcc_eh.a, which we will ship with the main GCC package ..."
+rm -v `find "$PKGDIR" -name 'libgcc_eh.a'`
+
+if ab_match_archgroup retro; then
     RTLIBS="libatomic libgfortran libgomp libquadmath libstdc++-v3/src libitm \
             libsanitizer/asan libsanitizer/lsan libsanitizer/ubsan \
             libsanitizer/tsan libgo libvtv libcilkrts \
@@ -30,32 +28,43 @@ for lib in ${RTLIBS[@]}; do
 done
 
 abinfo "Installing libobjc ..."
-make -C "${ARCH_TARGET[$ARCH]}"/libobjc DESTDIR="$PKGDIR" install-libs
-abinfo "Installing libstdc++-v3 ..."
-make -C "${ARCH_TARGET[$ARCH]}"/libstdc++-v3/po DESTDIR="$PKGDIR" install
+make install-libs \
+    -C "${ARCH_TARGET[$ARCH]}"/libobjc \
+    DESTDIR="$PKGDIR"
 
-for lib in libgomp \
-           libitm \
-           libquadmath; do
+abinfo "Installing libgccjit runtime ..."
+for i in `find "$SRCDIR"/jitbuild -name 'libgccjit.so*'`; do
+    cp -av $i \
+        "$PKGDIR"/usr/lib/
+done
+install -Dvm644 `find "$SRCDIR"/jitbuild -name 'libgccjit.info'` \
+    "$PKGDIR"/usr/share/info/libgccjit.info
+
+abinfo "Installing l10n data for libstdc++-v3 ..."
+make install \
+    -C "${ARCH_TARGET[$ARCH]}"/libstdc++-v3/po \
+    DESTDIR="$PKGDIR"
+
+for lib in libgomp libitm libquadmath; do
     if [ -e "${ARCH_TARGET[$ARCH]}"/$lib/Makefile ]; then
-        abinfo "Installing $lib ..."
-        make -C "${ARCH_TARGET[$ARCH]}"/$lib DESTDIR="$PKGDIR" install-info
+        abinfo "Installing texinfo pages for $lib ..."
+        make install-info \
+            -C "${ARCH_TARGET[$ARCH]}"/$lib \
+            DESTDIR="$PKGDIR"
     fi
 done
 
-cd "$SRCDIR"
-
 if [ -d "$PKGDIR"/usr/lib64 ]; then
     abinfo "Moving /usr/lib64 => /usr/lib ..."
-    cp -arv "$PKGDIR"/usr/lib{64/*,/}
+    cp -av "$PKGDIR"/usr/lib{64/*,/}
     rm -rv "$PKGDIR"/usr/lib64
 fi
 
 if [ -d "$PKGDIR"/usr/lib32 ]; then
     abinfo "Moving /usr/lib32 => /usr/lib ..."
-    cp -arv "$PKGDIR"/usr/lib{32/*,/}
+    cp -av "$PKGDIR"/usr/lib{32/*,/}
     rm -rv "$PKGDIR"/usr/lib32
 fi
 
 abinfo "Set execution bits on all runtime libraries..."
-chmod +x "$PKGDIR"/usr/lib/lib*.so*
+chmod -v +x "$PKGDIR"/usr/lib/lib*.so*

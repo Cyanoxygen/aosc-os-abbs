@@ -1,10 +1,11 @@
 abinfo "Installing/Registering BFD plugins..."
-mkdir -p "$PKGDIR"/usr/lib/bfd-plugins
+mkdir -pv "$PKGDIR"/usr/lib/bfd-plugins
 ln -sv /usr/lib/gcc/${ARCH_TARGET[$ARCH]}/${PKGVER%%+*}/liblto_plugin.so \
-       "$PKGDIR"/usr/lib/bfd-plugins/liblto_plugin.so
+    "$PKGDIR"/usr/lib/bfd-plugins/liblto_plugin.so
 
 abinfo "Creating symlink - FHS expects "cpp" to be in /usr/lib..."
-ln -sv /usr/bin/cpp "$PKGDIR"/usr/lib/cpp
+ln -sv ../bin/cpp \
+    "$PKGDIR"/usr/lib/cpp
 
 # Mysteriously this doesn't work for riscv64
 if [[ "${CROSS:-$ARCH}" != "riscv64" ]]; then
@@ -15,19 +16,20 @@ fi
 
 abinfo "Removing files in gcc-runtime..."
 RTLIBS="asan lsan ubsan tsan vtv itm quadmath atomic gcc_s stdc++ gfortran gomp \
-        gomp-plugin-host_nonshm objc go cilkrts gdruntime gphobos"
+        gomp-plugin-host_nonshm objc go cilkrts gdruntime gphobos gccjit"
 
 for i in ${RTLIBS[@]}; do
     abinfo "Removing lib${i} ..."
-    rm -fv "$PKGDIR"/usr/lib/lib${i}.so*
+    rm -v "$PKGDIR"/usr/lib/lib${i}.so*
 done
 
 abinfo "Removing locale and texinfo documentation from gcc-runtime ..."
-rm -fv "$PKGDIR"/usr/share/locale/de/LC_MESSAGES/libstdc++.mo
-rm -fv "$PKGDIR"/usr/share/locale/fr/LC_MESSAGES/libstdc++.mo
-rm -fv "$PKGDIR"/usr/share/info/libgomp.info
-rm -fv "$PKGDIR"/usr/share/info/libquadmath.info
-rm -fv "$PKGDIR"/usr/share/info/libitm.info
+rm -v "$PKGDIR"/usr/share/locale/de/LC_MESSAGES/libstdc++.mo
+rm -v "$PKGDIR"/usr/share/locale/fr/LC_MESSAGES/libstdc++.mo
+rm -v "$PKGDIR"/usr/share/info/libgomp.info
+rm -v "$PKGDIR"/usr/share/info/libquadmath.info
+rm -v "$PKGDIR"/usr/share/info/libitm.info
+rm -v "$PKGDIR"/usr/share/info/libgccjit.info
 
 # Debian: libbacktrace is not installed by default
 if [ -e "$BLDDIR"/libbacktrace/backtrace-supported.h ] ; then
@@ -40,11 +42,11 @@ if [ -e "$BLDDIR"/libbacktrace/backtrace-supported.h ] ; then
         "$PKGDIR"/usr/lib/libbacktrace.a
 fi
 
-if [[ "${CROSS:-$ARCH}" != "powerpc" && "${CROSS:-$ARCH}" != "ppc64" && \
-      "${CROSS:-$ARCH}" != "i486" && "${CROSS:-$ARCH}" != "armv4" && "${CROSS:-$ARCH}" != "armv6hf" && \
-      "${CROSS:-$ARCH}" != "armv7hf" && "${CROSS:-$ARCH}" != "loongson2f" && \
-      "${CROSS:-$ARCH}" != "loongarch64" && \
-      "${CROSS:-$ARCH}" != "loongson3" && "${CROSS:-$ARCH}" != "loongarch64_nosimd" ]]; then
+# Note: We don't ship gccgo with Afterglow.
+#
+# FIXME: No gccgo support for MIPS yet.
+if ! ab_match_archgroup retro && \
+   ! ab_match_arch loongson3; then
     abinfo "Preparing go and gofmt for alternatives ..."
     mv -v "$PKGDIR"/usr/bin/go{,-gnu}
     mv -v "$PKGDIR"/usr/bin/gofmt{,-gnu}
@@ -58,7 +60,7 @@ fi
 
 abinfo "Installing position-independent libiberty.a ..."
 install -Dvm644 "$BLDDIR"/libiberty/pic/libiberty.a \
-                "$PKGDIR"/usr/lib/libiberty.a
+    "$PKGDIR"/usr/lib/libiberty.a
 
 abinfo "Creating compatibility symlinks to ${HOST/aosc/unknown} ..."
 ln -sv ${HOST} \

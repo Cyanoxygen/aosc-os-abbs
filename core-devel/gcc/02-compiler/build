@@ -2,18 +2,21 @@
 cd "$SRCDIR"/abbuild
 
 abinfo "Building GCC documentations..."
-make -C ${ARCH_TARGET[$ARCH]}/libstdc++-v3/doc doc-man-doxygen
+make doc-man-doxygen \
+    -C ${ARCH_TARGET[$ARCH]}/libstdc++-v3/doc
 
 abinfo "Installing libgccjit (with some files going to be overrided by general GCC) ..."
-make -C "$SRCDIR"/jitbuild install DESTDIR="$PKGDIR"
+make instal \
+    -C "$SRCDIR"/jitbuild \
+    DESTDIR="$PKGDIR"
 
 abinfo "Installing GCC ..."
-make install DESTDIR="$PKGDIR"
+make install \
+    DESTDIR="$PKGDIR"
 
 abinfo "Generating Python code cache ..."
-python3 -m compileall "$PKGDIR"/usr/share/gcc-$PKGVER/python
-
-cd "$SRCDIR"
+python3 -m compileall \
+    "$PKGDIR"/usr/share/gcc-$PKGVER/python
 
 if [ -d "$PKGDIR"/usr/lib64 ]; then
     abinfo "Moving /usr/lib64 => /usr/lib ..."

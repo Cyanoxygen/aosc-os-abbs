@@ -1,8 +1,9 @@
-VER=14.3.0
-REL=1
+VER=15.2.0
 # Note: Use with Git snapshots.
 # SRCS="tbl::https://repo.aosc.io/aosc-repacks/gcc-$VER.tar.xz"
 # Note: Use with upstream stable releases.
+# Note: Use ftpmirror.gnu.org instead of the origin server for faster
+# download speed.
 SRCS="tbl::https://ftpmirror.gnu.org/gnu/gcc/gcc-$VER/gcc-$VER.tar.xz"
-CHKSUMS="sha256::e0dc77297625631ac8e50fa92fffefe899a4eb702592da5c32ef04e2293aca3a"
+CHKSUMS="sha256::438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
 CHKUPDATE="anitya::id=6502"
