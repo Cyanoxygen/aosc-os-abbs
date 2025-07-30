@@ -65,7 +65,7 @@ ln -sv ld* \
     ld-$PKGVER.so
 
 abinfo "Pre-generating Locale definition archive..."
-make localedata/install-locales \
+make -C "$SRCDIR"/build localedata/install-locales \
     install_root="$PKGDIR"
 
 abinfo "Installing locale-gen and configuration files..."
