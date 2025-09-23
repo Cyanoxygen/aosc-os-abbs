@@ -1,0 +1,49 @@
+PKGNAME=pango
+PKGSEC=libs
+PKGDEP="cairo harfbuzz mesa libthai x11-lib fribidi"
+BUILDDEP="fontconfig gi-docgen gobject-introspection help2man gtk-doc vim docutils"
+BUILDDEP__RETRO=""
+BUILDDEP__ARMV4="${BUILDDEP__RETRO}"
+BUILDDEP__ARMV6HF="${BUILDDEP__RETRO}"
+BUILDDEP__ARMV7HF="${BUILDDEP__RETRO}"
+BUILDDEP__I486="${BUILDDEP__RETRO}"
+BUILDDEP__LOONGSON2F="${BUILDDEP__RETRO}"
+BUILDDEP__M68K="${BUILDDEP__RETRO}"
+BUILDDEP__POWERPC="${BUILDDEP__RETRO}"
+BUILDDEP__PPC64="${BUILDDEP__RETRO}"
+BUILDDEP__MIPS64R6EL="${BUILDDEP__RETRO}"
+PKGDES="System for layout and rendering of internationalized text"
+
+ABSHADOW=0
+
+MESON_AFTER="-Ddocumentation=true \
+             -Dintrospection=enabled \
+             -Dfontconfig=enabled \
+             -Dsysprof=disabled \
+             -Dlibthai=enabled \
+             -Dcairo=enabled \
+             -Dxft=enabled \
+             -Dfreetype=enabled"
+MESON_AFTER__RETRO=" \
+             -Ddocumentation=false \
+             -Dintrospection=disabled \
+             -Dfontconfig=enabled \
+             -Dsysprof=disabled \
+             -Dlibthai=enabled \
+             -Dcairo=enabled \
+             -Dxft=enabled \
+             -Dfreetype=enabled"
+MESON_AFTER__ARMV4="${MESON_AFTER__RETRO}"
+MESON_AFTER__ARMV6HF="${MESON_AFTER__RETRO}"
+MESON_AFTER__ARMV7HF="${MESON_AFTER__RETRO}"
+MESON_AFTER__I486="${MESON_AFTER__RETRO}"
+MESON_AFTER__LOONGSON2F="${MESON_AFTER__RETRO}"
+MESON_AFTER__M68K="${MESON_AFTER__RETRO}"
+MESON_AFTER__POWERPC="${MESON_AFTER__RETRO}"
+MESON_AFTER__PPC64="${MESON_AFTER__RETRO}"
+MESON_AFTER__MIPS64R6EL="${MESON_AFTER__RETRO}"
+
+# Note: Extra Provides for Spiral (Debian compatibility).
+PKGPROV="libpango-1.0-0_spiral libpango-1.0-dev_spiral \
+         libpangocairo-1.0-0_spiral libpangocairo-1.0-dev \
+         libpango1.0-0_spiral"

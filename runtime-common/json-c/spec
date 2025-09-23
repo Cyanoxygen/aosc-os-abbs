@@ -1,4 +1,4 @@
 VER=0.18
 SRCS="tbl::https://github.com/json-c/json-c/archive/json-c-${VER/+/-}.tar.gz"
-CHKSUMS="sha256::8069b5e6100bb8b9908dcfdd368f0e99bdeea2cb139cba558e536715c8c8ac8e"
+CHKSUMS="sha256::16e23950289074d0dbc09ba32f50ba37560ce44d382a2a5b296630cd002f875d"
 CHKUPDATE="anitya::id=1477"

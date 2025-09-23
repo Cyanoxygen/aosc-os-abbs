@@ -1,14 +1,6 @@
 PKGNAME=lvm2
 PKGSEC=admin
-PKGDEP="bash readline libaio thin-provisioning-tools"
-PKGDEP__RETRO="bash readline libaio"
-PKGDEP__ARMV4="${PKGDEP__RETRO}"
-PKGDEP__ARMV6HF="${PKGDEP__RETRO}"
-PKGDEP__ARMV7HF="${PKGDEP__RETRO}"
-PKGDEP__I486="${PKGDEP__RETRO}"
-PKGDEP__LOONGSON2F="${PKGDEP__RETRO}"
-PKGDEP__POWERPC="${PKGDEP__RETRO}"
-PKGDEP__PPC64="${PKGDEP__RETRO}"
+PKGDEP="bash readline libaio"
 PKGDES="Logical Volume Manager 2 support utilities"
 
 AUTOTOOLS_AFTER="--with-udev-prefix=/usr \
@@ -18,15 +10,11 @@ AUTOTOOLS_AFTER="--with-udev-prefix=/usr \
                  --with-default-run-dir=/run/lvm \
                  --enable-pkgconfig \
                  --enable-readline \
-                 --enable-dmeventd \
                  --enable-cmdlib \
                  --enable-lvmpolld \
-                 --enable-udev_sync \
-                 --enable-udev_rules \
                  --with-default-locking-dir=/run/lock/lvm \
                  --with-thin=internal \
                  --with-cache=internal \
-                 --disable-udev-systemd-background-jobs \
                  --disable-dbus-service \
                  --enable-fsadm \
                  --enable-write_install \

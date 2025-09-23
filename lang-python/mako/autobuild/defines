@@ -5,5 +5,7 @@ BUILDDEP="setuptools wheel"
 PKGDES="Hyper-fast and lightweight template engine for Python"
 
 ABHOST=noarch
-ABTYPE=pep517
+# Fix: building stage2 on mips64r6el without pep517
+# ABTYPE=pep517
+ABTYPE=python
 NOPYTHON2=1

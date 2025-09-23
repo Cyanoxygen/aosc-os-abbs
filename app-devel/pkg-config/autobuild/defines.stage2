@@ -1,0 +1,9 @@
+PKGNAME=pkg-config
+PKGDES="A tool to fetch package configuration parameters"
+PKGDEP="pkgconf"
+PKGSEC=devel
+
+ABTYPE=dummy
+ABHOST=noarch
+
+PKGEPOCH=1

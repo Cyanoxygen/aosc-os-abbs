@@ -1,2 +1,9 @@
 ln -s /usr/bin/ld.bfd ${SRCDIR}/ld
 export PATH=${SRCDIR}:${PATH}
+
+if ab_match_arch mips64r6el ; then
+	abinfo "Setting default LD emulation ..."
+	# FIXME: ld attempted to produce wrong output when building iio:
+	# ld: iio_utils.o: ABI is incompatible with that of the selected emulation
+	export LDEMULATION="elf64ltsmip"
+fi

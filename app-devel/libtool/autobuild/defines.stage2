@@ -1,0 +1,6 @@
+PKGNAME=libtool
+PKGDES="GNU generic library support script"
+PKGSEC=devel
+# stage1-to-apt builds libtool earlier than glibc and bash.
+# Let's assume that glibc and bash exists on the system.
+RECONF=0

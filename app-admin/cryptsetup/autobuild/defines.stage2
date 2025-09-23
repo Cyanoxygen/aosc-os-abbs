@@ -4,6 +4,7 @@ PKGDEP="json-c libgcrypt util-linux popt libpwquality libssh lvm2"
 PKGDES="A utility for setting up encrypted disks"
 
 AUTOTOOLS_AFTER="--enable-fips \
+                --disable-asciidoc \
                  --enable-pwquality"
 ABSHADOW=0
 PKGBREAK="systemd<=1:238 volume-key<=0.3.9"

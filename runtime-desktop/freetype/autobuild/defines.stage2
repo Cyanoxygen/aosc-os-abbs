@@ -3,6 +3,7 @@ PKGSEC=libs
 PKGDES="A free and portable font rendering engine"
 PKGDEP="libpng zlib bzip2 brotli"
 PKGDEP__ARMV4="${PKGDEP__RETRO}"
+PKGDEP__MIPS64R6EL="${PKGDEP__RETRO}"
 
 ABTYPE=meson
 MESON_AFTER="-Dbrotli=enabled \
@@ -22,3 +23,5 @@ MESON_AFTER__I486="${MESON_AFTER__RETRO}"
 MESON_AFTER__LOONGSON2F="${MESON_AFTER__RETRO}"
 MESON_AFTER__POWERPC="${MESON_AFTER__RETRO}"
 MESON_AFTER__PPC64="${MESON_AFTER__RETRO}"
+MESON_AFTER__MIPS64R6EL="${MESON_AFTER__RETRO} \
+                         -Dpng=disabled"

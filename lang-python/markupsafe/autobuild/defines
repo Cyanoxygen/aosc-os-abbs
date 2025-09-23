@@ -5,3 +5,4 @@ BUILDDEP="setuptools"
 PKGDES="An XML/HTML/XHTML Markup safe string implementation for Python"
 
 NOPYTHON2=1
+ABTYPE=python

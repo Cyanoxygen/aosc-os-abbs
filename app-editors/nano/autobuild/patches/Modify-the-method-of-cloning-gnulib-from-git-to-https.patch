@@ -1,0 +1,13 @@
+diff --git nano/autogen.sh nano/autogen.sh
+index b48bd88..af20dbc 100755
+--- nano/autogen.sh
++++ nano/autogen.sh
+@@ -1,7 +1,7 @@
+ #!/bin/sh
+ # Generate configure & friends for GIT users.
+ 
+-gnulib_url="git://git.sv.gnu.org/gnulib.git"
++gnulib_url="https://https.git.savannah.gnu.org/git/gnulib.git"
+ gnulib_hash="f05b5a23f6cef8833402a298d1576a0118912ac8"
+ 
+ modules="

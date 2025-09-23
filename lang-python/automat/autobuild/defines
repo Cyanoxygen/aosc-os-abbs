@@ -1,7 +1,7 @@
 PKGNAME=automat
 PKGSEC=python
 PKGDEP="attrs six"
-BUILDDEP="setuptools setuptools-scm m2r"
+BUILDDEP="setuptools setuptools-scm"
 PKGDES="Self-service finite-state machines for the programmer on the go"
 PKGSUG="python-graphviz"
 
