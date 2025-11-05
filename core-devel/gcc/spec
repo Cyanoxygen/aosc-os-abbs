@@ -1,9 +1,8 @@
 VER=15.2.0
-# Note: Use with Git snapshots.
-# SRCS="tbl::https://repo.aosc.io/aosc-repacks/gcc-$VER.tar.xz"
-# Note: Use with upstream stable releases.
-# Note: Use ftpmirror.gnu.org instead of the origin server for faster
-# download speed.
-SRCS="tbl::https://ftpmirror.gnu.org/gnu/gcc/gcc-$VER/gcc-$VER.tar.xz"
-CHKSUMS="sha256::438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
+EPOCH=1
+# NOTE: Switched to metapackage that points to gcc-MAJORVER.
+# This package contains symbolic links for compatibility.
+__MAJOR="${VER%%.*}"
+DUMMYSRC=1
+SUBDIR="."
 CHKUPDATE="anitya::id=6502"

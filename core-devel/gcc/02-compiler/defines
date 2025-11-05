@@ -1,14 +1,10 @@
 PKGNAME=gcc
 PKGSEC=devel
-PKGDEP="binutils gcc-runtime gmp isl mpc mpfr zlib zstd"
-BUILDDEP="texinfo"
-PKGDES="GNU Compiler Collection (compilers and development data)"
+PKGDEP="gcc-runtime gcc-15"
+PKGDES="GNU Compiler Collection (compilers and development data, metapackage)"
 
-# Note: Needed by the toolchain.
-NOSTATIC=0
+ABSPILTDBG=0
+ABSTRIP=0
 
-PKGBREAK="gcc-runtime<=5.2.0-2 go<=1.7.3 autobuild3<=1:20170803"
-PKGREP="${PKGBREAK}"
-
-# Note: Debian's GCC is currently at 1:.
-PKGEPOCH_SPIRAL=1
+PKGBREAK="gcc<=14.3.0-1"
+PKGREP="gcc<=14.3.0-1"
