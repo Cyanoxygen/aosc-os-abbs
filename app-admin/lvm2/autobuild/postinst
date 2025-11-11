@@ -8,4 +8,7 @@ if [ -f /run/systemd/private ]; then
 	kill 1
 fi
 
-systemctl enable lvm2-monitor.service
+# NOTE: This service is not enabled in stage 2 mode
+if [ -e /usr/lib/systemd/system/lvm2-monitor.service ] ; then
+	systemctl enable lvm2-monitor.service
+fi
