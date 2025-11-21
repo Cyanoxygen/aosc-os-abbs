@@ -34,8 +34,8 @@ AUTOTOOLS_AFTER__AMD64=(
 )
 # Note: For MTE (Memory Tagging Extension) support.
 AUTOTOOLS_AFTER__ARM64=(
-    "${AUTOTOOLS_AFTER}'
-    '--enable-memory-tagging"
+    "${AUTOTOOLS_AFTER[@]}"
+    '--enable-memory-tagging'
 )
 
 # Note: Needed for compilers and debuggers.
