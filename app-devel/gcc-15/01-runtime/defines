@@ -96,14 +96,14 @@ AUTOTOOLS_AFTER__I486=(
 )
 AUTOTOOLS_AFTER__LOONGARCH64=(
     "${AUTOTOOLS_AFTER[@]}"
-    "--enable-languages=${LANGS__GO/,ada/}"
+    "--enable-languages=${LANGS__NOGO/,ada/}"
     '--with-abi=lp64d'
     '--with-arch=la64v1.0'
     '--with-tune=la664'
 )
 AUTOTOOLS_AFTER__LOONGARCH64_NOSIMD=(
     "${AUTOTOOLS_AFTER[@]}"
-    "--enable-languages=${LANGS__GO/,ada/}"
+    "--enable-languages=${LANGS__NOGO/,ada/}"
     '--with-abi=lp64d'
     '--with-arch=loongarch64'
 )
