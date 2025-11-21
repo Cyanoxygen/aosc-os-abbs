@@ -1,7 +1,7 @@
 From 44b3389cae7cfa2368dae6b850f829faa0148ff3 Mon Sep 17 00:00:00 2001
 From: Florian Weimer <fweimer@redhat.com>
 Date: Fri, 2 May 2025 17:41:43 +0200
-Subject: [PATCH 3/4] libsanitizer: Fix build with glibc 2.42
+Subject: [PATCH 3/5] libsanitizer: Fix build with glibc 2.42
 
 The termio structure will be removed from glibc 2.42.  It has
 been deprecated since the late 80s/early 90s.
