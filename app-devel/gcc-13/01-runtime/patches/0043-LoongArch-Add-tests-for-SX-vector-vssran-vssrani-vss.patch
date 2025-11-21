@@ -1,7 +1,7 @@
 From 0ae936d7fc559f42dbff919282067c3d5bf0b5ac Mon Sep 17 00:00:00 2001
 From: Xiaolong Chen <chenxiaolong@loongson.cn>
 Date: Tue, 12 Sep 2023 11:17:38 +0800
-Subject: [PATCH 43/90] LoongArch: Add tests for SX vector
+Subject: [PATCH 43/91] LoongArch: Add tests for SX vector
  vssran/vssrani/vssrarn/vssrarni/vssrln /vssrlni/vssrlrn/vssrlrni
  instructions.
 

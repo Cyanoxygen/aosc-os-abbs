@@ -1,7 +1,7 @@
 From c4a63cb65a164c3c0feeea903647ec54756b2aff Mon Sep 17 00:00:00 2001
 From: Yang Yujie <yangyujie@loongson.cn>
 Date: Wed, 23 Aug 2023 15:16:21 +0800
-Subject: [PATCH 16/90] LoongArch: improved target configuration interface
+Subject: [PATCH 16/91] LoongArch: improved target configuration interface
 
 The configure script and the GCC driver are updated so that
 it is easier to customize and control GCC builds for targeting

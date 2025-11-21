@@ -1,7 +1,7 @@
 From daf7c641949529a3112f532ce3f01f4590a9122f Mon Sep 17 00:00:00 2001
 From: Xiaolong Chen <chenxiaolong@loongson.cn>
 Date: Tue, 12 Sep 2023 11:13:32 +0800
-Subject: [PATCH 42/90] LoongArch: Add tests for SX vector
+Subject: [PATCH 42/91] LoongArch: Add tests for SX vector
  vrotr/vrotri/vsra/vsrai/vsran/vsrani /vsrarn/vsrarni instructions.
 
 gcc/testsuite/ChangeLog:

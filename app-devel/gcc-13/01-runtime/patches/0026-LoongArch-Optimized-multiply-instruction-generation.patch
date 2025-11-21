@@ -1,7 +1,7 @@
 From fef57cbc778b1b588f7704ceb6f64351720ad391 Mon Sep 17 00:00:00 2001
 From: Lulu Cheng <chenglulu@loongson.cn>
 Date: Tue, 5 Sep 2023 11:09:03 +0800
-Subject: [PATCH 26/90] LoongArch: Optimized multiply instruction generation.
+Subject: [PATCH 26/91] LoongArch: Optimized multiply instruction generation.
 
 	1. Can generate mulh.w[u] instruction.
 	2. Can generate mulw.d.wu instruction.

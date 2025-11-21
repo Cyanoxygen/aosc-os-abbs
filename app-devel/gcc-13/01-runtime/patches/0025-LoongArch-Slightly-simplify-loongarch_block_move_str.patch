@@ -1,7 +1,7 @@
 From aa0adf30bcc359dfdbd625202e0898ebb9fea5ad Mon Sep 17 00:00:00 2001
 From: Xi Ruoyao <xry111@xry111.site>
 Date: Fri, 8 Sep 2023 00:29:57 +0800
-Subject: [PATCH 25/90] LoongArch: Slightly simplify
+Subject: [PATCH 25/91] LoongArch: Slightly simplify
  loongarch_block_move_straight
 
 gcc/ChangeLog:

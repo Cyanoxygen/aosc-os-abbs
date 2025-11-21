@@ -1,7 +1,7 @@
 From 9bff4fc3798d603d3870b90c309d1b8cb5e663c2 Mon Sep 17 00:00:00 2001
 From: Xinhui Yang <cyan@cyano.uk>
 Date: Tue, 11 Mar 2025 09:54:14 +0800
-Subject: [PATCH 86/90] AOSC: gcc/Makefile.in: do not run fixinc.sh
+Subject: [PATCH 86/91] AOSC: gcc/Makefile.in: do not run fixinc.sh
 
 This came from one of the sed commands in GCC's autobuild/prepare
 script.

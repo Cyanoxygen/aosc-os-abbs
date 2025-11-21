@@ -1,7 +1,7 @@
 From fd359c1febcaf6e3925b837a08853a88ecf50aee Mon Sep 17 00:00:00 2001
 From: mengqinggang <mengqinggang@loongson.cn>
 Date: Fri, 10 Jan 2025 10:27:09 +0800
-Subject: [PATCH 89/90] BACKPORT: LoongArch: Generate the final immediate for
+Subject: [PATCH 89/91] BACKPORT: LoongArch: Generate the final immediate for
  lu12i.w, lu32i.d and lu52i.d
 
 Generate 0x1010 instead of 0x1010000>>12 for lu12i.w. lu32i.d and lu52i.d use

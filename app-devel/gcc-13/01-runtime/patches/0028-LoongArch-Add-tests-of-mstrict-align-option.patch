@@ -1,7 +1,7 @@
 From dcbbe7de9b6c0882b5fbe9cd92e843e3ee4421ae Mon Sep 17 00:00:00 2001
 From: Xiaolong Chen <chenxiaolong@loongson.cn>
 Date: Mon, 11 Sep 2023 09:35:24 +0800
-Subject: [PATCH 28/90] LoongArch: Add tests of -mstrict-align option.
+Subject: [PATCH 28/91] LoongArch: Add tests of -mstrict-align option.
 
 gcc/testsuite/ChangeLog:
 

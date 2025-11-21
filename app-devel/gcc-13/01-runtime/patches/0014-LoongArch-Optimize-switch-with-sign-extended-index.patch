@@ -1,7 +1,7 @@
 From 4d47627f5819de79e1407089668bfbd75c1653c7 Mon Sep 17 00:00:00 2001
 From: Lulu Cheng <chenglulu@loongson.cn>
 Date: Sat, 2 Sep 2023 10:59:55 +0800
-Subject: [PATCH 14/90] LoongArch: Optimize switch with sign-extended index.
+Subject: [PATCH 14/91] LoongArch: Optimize switch with sign-extended index.
 
 The patch refers to the submission of RISCV
 7bbce9b50302959286381d9177818642bceaf301.

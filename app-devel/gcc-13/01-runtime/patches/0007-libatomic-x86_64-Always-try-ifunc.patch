@@ -1,7 +1,7 @@
 From d7673e405380ac1d5af5db12cc07b1ac99b4d1d6 Mon Sep 17 00:00:00 2001
 From: Xi Ruoyao <xry111@xry111.site>
 Date: Sat, 3 Jun 2023 02:25:44 +0800
-Subject: [PATCH 07/90] libatomic: x86_64: Always try ifunc
+Subject: [PATCH 07/91] libatomic: x86_64: Always try ifunc
 
 We used to skip ifunc check when CX16 is available.  But now we use
 CX16+AVX+Intel/AMD for the "perfect" 16b load implementation, so CX16

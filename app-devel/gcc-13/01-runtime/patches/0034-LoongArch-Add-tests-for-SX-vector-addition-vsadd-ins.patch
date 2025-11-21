@@ -1,7 +1,7 @@
 From aeb5dcd94878fdf375d0c3443ea3a64b3c27b38f Mon Sep 17 00:00:00 2001
 From: Xiaolong Chen <chenxiaolong@loongson.cn>
 Date: Mon, 11 Sep 2023 10:07:24 +0800
-Subject: [PATCH 34/90] LoongArch: Add tests for SX vector addition vsadd
+Subject: [PATCH 34/91] LoongArch: Add tests for SX vector addition vsadd
  instructions.
 
 gcc/testsuite/ChangeLog:

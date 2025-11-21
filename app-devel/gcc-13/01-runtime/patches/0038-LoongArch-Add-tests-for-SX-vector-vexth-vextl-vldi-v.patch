@@ -1,7 +1,7 @@
 From 9f9a5bdc4bef15477a5c01ff1fbd998a5869b014 Mon Sep 17 00:00:00 2001
 From: Xiaolong Chen <chenxiaolong@loongson.cn>
 Date: Mon, 11 Sep 2023 18:44:16 +0800
-Subject: [PATCH 38/90] LoongArch: Add tests for SX vector
+Subject: [PATCH 38/91] LoongArch: Add tests for SX vector
  vexth/vextl/vldi/vneg/vsat instructions.
 
 gcc/testsuite/ChangeLog:

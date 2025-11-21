@@ -1,7 +1,7 @@
 From 8dccff459c3e0bbc8d3eb5e74f9b926208ecf4aa Mon Sep 17 00:00:00 2001
 From: Xinhui Yang <cyan@cyano.uk>
 Date: Tue, 11 Mar 2025 09:56:41 +0800
-Subject: [PATCH 87/90] AOSC: gcc, libiberty: configure: assign -O2 to autoconf
+Subject: [PATCH 87/91] AOSC: gcc, libiberty: configure: assign -O2 to autoconf
  CPP flags
 
 This came from one of the sed lines in the GCC's autobuild/prepare

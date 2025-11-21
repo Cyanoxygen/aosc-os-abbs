@@ -1,7 +1,7 @@
 From e4eb9ba9c6138b7a0c8572ee8f7e3e2986f0fee8 Mon Sep 17 00:00:00 2001
 From: Lulu Cheng <chenglulu@loongson.cn>
 Date: Thu, 16 Nov 2023 20:43:53 +0800
-Subject: [PATCH 84/90] LoongArch: Add LA664 support.
+Subject: [PATCH 84/91] LoongArch: Add LA664 support.
 
 Define ISA_BASE_LA64V110, which represents the base instruction set defined in LoongArch1.1.
 Support the configure setting --with-arch =la664, and support -march=la664,-mtune=la664.

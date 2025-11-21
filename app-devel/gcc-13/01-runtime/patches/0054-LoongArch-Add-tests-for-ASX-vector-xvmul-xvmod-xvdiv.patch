@@ -1,7 +1,7 @@
 From 0de2ac43fad10553f8f44535821fdf1babf21c73 Mon Sep 17 00:00:00 2001
 From: Xiaolong Chen <chenxiaolong@loongson.cn>
 Date: Tue, 12 Sep 2023 15:23:35 +0800
-Subject: [PATCH 54/90] LoongArch: Add tests for ASX vector xvmul/xvmod/xvdiv
+Subject: [PATCH 54/91] LoongArch: Add tests for ASX vector xvmul/xvmod/xvdiv
  instructions.
 
 gcc/testsuite/ChangeLog:

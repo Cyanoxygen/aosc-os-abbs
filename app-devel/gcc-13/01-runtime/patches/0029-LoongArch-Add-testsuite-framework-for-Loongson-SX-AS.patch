@@ -1,7 +1,7 @@
 From c133bdd167df396e95b4741afc8d994dcb822b9f Mon Sep 17 00:00:00 2001
 From: Xiaolong Chen <chenxiaolong@loongson.cn>
 Date: Mon, 11 Sep 2023 09:36:35 +0800
-Subject: [PATCH 29/90] LoongArch: Add testsuite framework for Loongson SX/ASX.
+Subject: [PATCH 29/91] LoongArch: Add testsuite framework for Loongson SX/ASX.
 
 gcc/testsuite/ChangeLog:
 

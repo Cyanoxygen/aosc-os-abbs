@@ -1,7 +1,7 @@
 From 6c9614e936fbb0af42ad12a48e9c27dac9af6b67 Mon Sep 17 00:00:00 2001
 From: Lulu Cheng <chenglulu@loongson.cn>
 Date: Thu, 31 Aug 2023 19:11:23 +0800
-Subject: [PATCH 13/90] LoongArch: Optimize fixed-point and floating-point
+Subject: [PATCH 13/91] LoongArch: Optimize fixed-point and floating-point
  conversion operations.
 
 Before optimization, the operation of taking fixed-point numbers from memory
