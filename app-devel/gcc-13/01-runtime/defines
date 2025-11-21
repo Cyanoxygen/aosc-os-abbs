@@ -77,7 +77,7 @@ AUTOTOOLS_AFTER__LOONGSON3=(
 )
 AUTOTOOLS_AFTER__PPC64EL=(
 	"${AUTOTOOLS_AFTER[@]}"
-	"${AUTOTOOLS_AFTER_WITHGO[@]}"
+	"${AUTOTOOLS_AFTER__WITHGO[@]}"
 	"--with-libphobos-druntime-only=no"
 	"--with-cpu=power8"
 	"--with-tune=power9"
@@ -88,6 +88,8 @@ AUTOTOOLS_AFTER__PPC64EL=(
 )
 AUTOTOOLS_AFTER__RISCV64=(
 	"${AUTOTOOLS_AFTER[@]}"
+	"${AUTOTOOLS_AFTER__WITHGO[@]}"
+	"--with-libphobos-druntime-only=no"
 	"--with-arch=rv64gc"
 	"--with-abi=lp64d"
 	"--with-isa-spec=2.2"
