@@ -128,8 +128,8 @@ abinfo "Moving documentation and locale data to versioned paths ..."
 # NOTE Section 1 pages already have versioned suffixes.
 # NOTE Gettext translation catalogs already have versioned suffixes.
 for i in "$PKGDIR"/usr/share/man/man7/*; do
-    mv -v "$i" "${i/.7/-${PKGVER%%.*}.7}"
+    mv -v "$i" "${i%%.7}-${PKGVER%%.*}.7"
 done
 for i in "$PKGDIR"/usr/share/info/!(dir); do
-    mv -v "$i" "${i/.info/-${PKGVER%%.*}.info}"
+    mv -v "$i" "${i%%.info}-${PKGVER%%.*}.info"
 done
