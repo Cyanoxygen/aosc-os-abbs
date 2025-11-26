@@ -17,9 +17,12 @@ mv -v "$PKGDIR"/"$GCC_LIBDIR"/*gdb.py \
     "$PKGDIR"/usr/share/gdb/auto-load/usr/lib/
 
 abinfo "Moving rogue libraries to the correct location ..."
-mv -v "$PKGDIR"/"$GCC_LIBDIR"/../lib*/* \
-    "$PKGDIR"/"$GCC_LIBDIR"/
-rm -rv "$PKGDIR"/"$GCC_LIBDIR"/../lib*
+for d in $(find "$PKGDIR"/"$GCC_LIBDIR"/.. -maxdepth 1 -type d -name 'lib*') ; do
+    for f in $(find "$d" -maxdepth 1 -type f,l -name 'lib*') ; do
+        mv -v "$f" "$PKGDIR"/"$GCC_LIBDIR"/
+    done
+    rm -rv "$d"
+done
 
 abinfo "Moving rogue headers to the correct location ..."
 mv -v "$PKGDIR"/usr/include/*.h \
