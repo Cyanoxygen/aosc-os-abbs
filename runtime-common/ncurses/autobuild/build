@@ -8,13 +8,21 @@
 # 5. Enables pkg-config .pc files installing (for later needs, like NetworkManager);
 # 6. Enables C++ bindings (disable --with-cxx-binding if you are sure);
 # 7. Enables C++ shared bindings (remove if #6 is not needed);
+# Kaboom:
+# NOTE: Forcing the build system to build with standard <stdbool.h>.
+# Otherwise you will get a bunch of redifinition errors in C++, since
+# ncurses will use its own CURSES_BOOL which expands to either int or
+# unsigned char.
+
 abinfo "Configuring..."
 ./configure --prefix=/usr --libdir=/usr/lib \
             --with-pkg-config-libdir=/usr/lib/pkgconfig \
             --mandir=/usr/share/man \
             --with-shared --with-normal --without-debug --without-ada \
             --enable-widec --enable-pc-files --with-cxx-binding --with-cxx-shared \
-            --without-gpm --enable-ext-colors --with-versioned-syms ${AUTOTOOLS_AFTER}
+            --without-gpm --enable-ext-colors --with-versioned-syms \
+            "cf_cv_header_stdbool_h=1"
+
 abinfo "Building runtime libraries..."
 make
 make install DESTDIR="$PKGDIR"
