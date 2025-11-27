@@ -5,3 +5,8 @@ if ab_match_arch amd64 || \
    ab_match_arch loongson3; then
         export ABI=64
 fi
+
+# FIXME: GCC 15 causes conftests to fail.
+# checking compiler ia64-aosc-linux-gnu-gcc -mtune=itanium2 -O2 ... no, long long reliability test 1
+abinfo "Adding -std=gnu17 to compiler flags ..."
+export CFLAGS="$CFLAGS -std=gnu17"
