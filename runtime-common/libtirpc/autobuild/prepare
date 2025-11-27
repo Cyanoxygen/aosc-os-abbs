@@ -1,2 +1,6 @@
 # Glibc 2.26
+abinfo "Fixing header name for xdr_sizeof.c ..."
 sed '/stdlib.h/a#include <stdint.h>' -i src/xdr_sizeof.c
+# FIXME: FTBFS with GCC 15
+abinfo "Setting language standards ..."
+export CFLAGS="$CFLAGS -std=gnu99"
