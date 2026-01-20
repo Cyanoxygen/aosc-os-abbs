@@ -125,6 +125,16 @@ AUTOTOOLS_AFTER__LOONGSON3=(
     '--with-tune=gs464e'
     '--with-mips-fix-loongson3-llsc'
 )
+AUTOTOOLS_AFTER__MIPS64R6EL=(
+    "${AUTOTOOLS_AFTER[@]}"
+    "--enable-languages=${LANGS__NOGO/,ada/}"
+    '--with-abi=64'
+    '--with-arch=mips64r6'
+    '--with-compact-branches=always'
+    '--with-nan=2008'
+    '--with-msa'
+    '--with-float=hard'
+)
 AUTOTOOLS_AFTER__M68K=(
     "${AUTOTOOLS_AFTER[@]}"
     "--enable-languages=${LANGS__RETRO}"
