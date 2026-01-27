@@ -15,6 +15,9 @@ case "$ARCH" in
 	loongson2f|loongson3)
 		SPIRALARCH="mips64el"
 		;;
+	mips64r6el)
+		SPIRALARCH="mips64el"
+		;;
 	*)
 		SPIRALARCH="$ARCH"
 		;;
