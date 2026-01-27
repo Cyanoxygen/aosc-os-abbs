@@ -127,7 +127,7 @@ AUTOTOOLS_AFTER__LOONGSON3=(
 )
 AUTOTOOLS_AFTER__MIPS64R6EL=(
     "${AUTOTOOLS_AFTER[@]}"
-    "--enable-languages=${LANGS__NOGO/,ada/}"
+    "--enable-languages=${LANGS__NOGO/,d,ada/}"
     '--with-abi=64'
     '--with-arch=mips64r6'
     '--with-compact-branches=always'
