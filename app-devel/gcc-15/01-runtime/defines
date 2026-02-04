@@ -132,7 +132,7 @@ AUTOTOOLS_AFTER__MIPS64R6EL=(
     '--with-arch=mips64r6'
     '--with-compact-branches=always'
     '--with-nan=2008'
-    '--with-msa'
+    '--without-msa'
     '--with-float=hard'
 )
 AUTOTOOLS_AFTER__M68K=(

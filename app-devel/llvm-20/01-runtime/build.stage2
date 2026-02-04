@@ -8,6 +8,20 @@ PATH="${PATH/:\/sbin/}"
 
 CPP_TRIPLE="$(gcc -dumpmachine)"
 
+if ab_match_arch loongarch64; then
+    abinfo "Adding -mcmodel=medium for compiler-rt ..."
+    export CFLAGS="${CFLAGS} -mcmodel=medium"
+    export CXXFLAGS="${CXXFLAGS} -mcmodel=medium"
+fi
+
+# FIXME: It looks like GCC is producing incorrect code with MSA enabled ...
+if ab_match_arch mips64r6el ; then
+	abinfo "Disabling MSA ..."
+	export CFLAGS="${CFLAGS/-mmsa/} -mno-msa"
+	export CXXFLAGS="${CXXFLAGS/-mmsa/} -mno-msa"
+	export CPPFLAGS="${CPPFLAGS/-mmsa/} -mno-msa"
+fi
+
 abinfo "Running CMake for LLVM ..."
 cmake "$SRCDIR" \
     ${CMAKE_DEF[@]} ${CMAKE_AFTER} \
