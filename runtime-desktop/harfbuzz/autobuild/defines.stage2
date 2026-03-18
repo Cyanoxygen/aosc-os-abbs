@@ -1,6 +1,6 @@
 PKGNAME=harfbuzz
 PKGDES="OpenType text shaping engine"
-PKGDEP__RETRO="cairo freetype glib"
+PKGDEP="cairo freetype glib graphite"
 BUILDDEP="ragel icu gobject-introspection"
 PKGSEC=libs
 
@@ -12,7 +12,7 @@ MESON_AFTER=(
 	"-Dcairo=enabled"
 	"-Dchafa=disabled"
 	"-Dicu=enabled"
-	"-Dgraphite2=disabled"
+	"-Dgraphite2=enabled"
 	"-Dfreetype=enabled"
 	"-Dgdi=disabled"
 	"-Ddirectwrite=disabled"
