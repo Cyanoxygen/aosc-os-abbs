@@ -1,6 +1,6 @@
 PKGNAME=libftdi
 PKGSEC=libs
-PKGDEP="libusb-compat"
+PKGDEP="libusb-compat confuse"
 PKGDES="A library to talk to FTDI chips"
 
 ABSHADOW=0
