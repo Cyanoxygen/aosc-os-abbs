@@ -1,2 +1,4 @@
 abinfo "Installing DPKG ..."
+pushd "$BLDDIR"
 make install DESTDIR="$PKGDIR"
+popd
