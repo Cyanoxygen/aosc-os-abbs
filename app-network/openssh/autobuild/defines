@@ -66,6 +66,11 @@ AUTOTOOLS_AFTER__LOONGSON3=(
 	"${AUTOTOOLS_AFTER[@]}"
 	'ossh_cv_cflag__fzero_call_used_regs_used=no'
 )
+# NOTE: configure: error: seccomp_filter sandbox not supported on mipsisa64r6el-aosc-linux-gnuabi64
+AUTOTOOLS_AFTER__MIPS64R6EL=(
+	"${AUTOTOOLS_AFTER[@]}"
+	"--without-sandbox"
+)
 
 AUTOTOOLS_AFTER__RETRO=(
 	"${AUTOTOOLS_AFTER[@]}"
