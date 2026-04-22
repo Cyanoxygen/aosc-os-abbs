@@ -7,5 +7,3 @@ BUILDDEP="setuptools python-installer python-build wheel hatchling hatch-fancy-p
 
 NOPYTHON2=1
 ABHOST=noarch
-
-ABTYPE=python
