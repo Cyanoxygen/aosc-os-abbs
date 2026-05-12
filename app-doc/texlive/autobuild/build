@@ -11,6 +11,7 @@ fi
 # FIXME: LuaJIT fails to build on these architectures.
 if ab_match_arch loongarch64 || \
    ab_match_arch loongarch64_nosimd || \
+   ab_match_arch mips64r6el || \
    ab_match_arch loongson3; then
     LUAJIT="--disable-luajittex \
             --disable-luajithbtex \
