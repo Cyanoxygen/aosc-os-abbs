@@ -1,0 +1,31 @@
+From 5c6c07c62fb1566ed9107d75d2718980a53178c5 Mon Sep 17 00:00:00 2001
+From: Xinhui Yang <cyan@cyano.uk>
+Date: Wed, 29 Apr 2026 01:57:56 +0000
+Subject: [PATCH] meson: remove mips64 detection
+
+This enables mips64r2 only assembly code, which is incompatible with
+mips64r6.
+---
+ meson.build | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 3465c4e..9bfa5af 100644
+--- a/meson.build
++++ b/meson.build
+@@ -142,12 +142,6 @@ if host_machine.cpu_family() == 'aarch64'
+   have_neon = true
+   arch_cflags += ['-DWEBRTC_ARCH_ARM64']
+ endif
+-if ['mips', 'mips64'].contains(host_machine.cpu_family())
+-  have_mips = true
+-endif
+-if host_machine.cpu_family() == 'mips64'
+-  have_mips64 = true
+-endif
+ if ['x86', 'x86_64'].contains(host_machine.cpu_family())
+   have_x86 = true
+   # AVX2 support is unconditionally available, since all the code (compiled
+-- 
+2.52.0
+
